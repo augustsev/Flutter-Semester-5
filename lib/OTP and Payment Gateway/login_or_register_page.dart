@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'login_page.dart';
+import 'register_page.dart';
 
 class LoginOrRegisterScreen extends StatelessWidget {
   const LoginOrRegisterScreen({super.key});
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +20,7 @@ class LoginOrRegisterScreen extends StatelessWidget {
         child: Container(
           color: Colors.black54, // Semi-transparan agar teks terlihat jelas
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.end, // Memindahkan isi ke bawah
             children: [
               const Text(
                 'WELCOME',
@@ -33,6 +34,7 @@ class LoginOrRegisterScreen extends StatelessWidget {
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.orange,
+                  foregroundColor: Colors.black, // Mengubah warna teks tombol menjadi hitam
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30),
                   ),
@@ -58,10 +60,14 @@ class LoginOrRegisterScreen extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
                 ),
                 onPressed: () {
+                  Navigator.push(context,
+                   MaterialPageRoute(builder: (context) => const RegisterPage()),
+                  );
                   // Navigasi ke halaman Sign Up jika diperlukan
                 },
                 child: const Text('Sign Up'),
               ),
+              const SizedBox(height: 30), // Jarak di bawah tombol
             ],
           ),
         ),
